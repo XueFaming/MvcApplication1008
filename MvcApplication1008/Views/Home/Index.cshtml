@@ -1,0 +1,204 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="easyui-layout"  style="height:95%;margin-bottom:0px;">
+    <!--北-->
+    <div data-options="region:'north',border:false, overflow:'hidden'" style="height:150px;background:#76ABCD;">
+        <div id="topLogo">
+            <img src="~/Images/Hexagon_logo.png" style="width:300px;padding-left:5px"/>
+        </div>
+        <div id="topicWord">
+            Parts Delivery Management System 
+        </div>
+        <div class="topDiv" id="userInfoId">
+            <img class="topImage" src=" ~/Images/man.png" width="25" height="25"/>
+            <span class="titleWord" >User Information</span>
+            
+        </div>   
+        <div class="topDiv" id="logoutId">
+            <img class="topImage" src="~/Images/close.png" width="25" height="25"/>
+            <span class="titleWord">Exit</span>
+        </div>
+        <div class="topDiv" style="display:none;">
+            <img class="topImage" src="~/Images/phone.png" width="25" height="25"/>
+            <span class="titleWord">Contact Us</span>
+        </div>
+        <div class="topDiv">
+            <img class="topImage" src="~/Images/trumpet.png" width="25" height="25"/>
+            <span class="titleWord">Current Task</span>
+            
+        </div> 
+
+    </div>
+
+    <!--西-->
+    <div data-options="region:'west',split:false,title:'Toolbar',collapsible:false,headerCls:'titleSet'" style="width:250px">
+          
+            <a id="btn1" class="easyui-linkbutton" data-options="iconCls:'icon-writting'" title="Fixture Application" >
+                <span class="leftFontClass">
+                    Fixture Application
+                </span>
+            </a>
+            <a id="btn2"  class="easyui-linkbutton" data-options="iconCls:'icon-tip'" title="Processing Orders">
+                <span class="leftFontClass">
+                    Processing Orders
+                </span>
+            </a>
+            <a id="btn3" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" title="Completed Orders">
+                <span class="leftFontClass">
+                    Completed Orders
+                </span>
+            </a>
+            <a id="btn4" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" title="View All Orders">
+                <span class="leftFontClass">
+                    View All Orders
+                </span>
+            </a>
+            <a id="btn5" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-setting'" title="User Settings">
+                <span class="leftFontClass">
+                    User Settings
+                </span>
+            </a> 
+        <div id="toolId" class="easyui-accordion" data-options="fit:true,border:true,selected:false">
+            <div title="Administrator Console" data-options="iconCls:'icon-man',fit:true">
+                <a id="btn6" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" title="Create Account">
+                    <span class="leftFontClass">
+                        Create Account
+                    </span>
+                </a>
+                <a id="btn7" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-mans'" title="Administer Account">
+                    <span class="leftFontClass">
+                        Administer Account
+                    </span>
+                </a>
+            </div>      
+        </div> 
+    </div>
+
+    <!--南-->
+    <div data-options="region:'south',border:false" style="height:20px;background:#ccc;padding:1px">Current login person：Snow</div>
+
+    
+
+    <!--中-->
+    <div   data-options="region:'center',border:false,fit:true,headerCls:'titleSet'" >
+        
+        <div id="midShowId" class="easyui-tabs" data-options="fit:true" style="margin:0px">
+            <div id="defaultShow" data-options="collapsible:true">nihao </div>
+        </div>
+    </div>
+    <div id="userInformation" class="easyui-panel" data-options="handle:'#title'" style="width:300px;height:300px;background:#ccc">
+        <table style="width:100%;height:90%;border:1px;">
+            <tr>
+                <td>Name：</td>
+                <td>Administer</td>
+            </tr>
+            <tr>
+                <td>Company：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Phone：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>E-mail：</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Comment：</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+
+
+    //打开tabs
+    $("a").click(function () {
+        var titleValue = $(this).text();
+        titleValue = $.trim(titleValue);
+        
+        if ($("#midShowId").tabs("exists", titleValue)) {
+            $("#midShowId").tabs("select", titleValue)
+        }
+        else if (titleValue == "Fixture Application") {
+            var hrefValue = "Application/ApplicationView";
+            $("#midShowId").tabs("add", {
+                "title": titleValue,
+                "closable": true,
+                "href": hrefValue,
+                "cache":true
+            })
+        }
+        else if (titleValue == "Processing Orders") {
+            var hrefValue = "ProcessingOrders/processingView";
+            $("#midShowId").tabs("add", {
+                "title": titleValue,
+                "closable": true,
+                "href": hrefValue,
+                "cache":true
+            })
+        }
+        else if (titleValue == "Completed Orders") {
+            $("#midShowId").tabs("add", {
+                "title": titleValue,
+                "closable": true,
+                "href": "https://www.baidu.com"
+            })
+        }
+        else if (titleValue == "View All Orders") {
+            $("#midShowId").tabs("add", {
+                "title": titleValue,
+                "closable": true,
+                "href": "https://www.baidu.com"
+            })
+        }
+        else if (titleValue == "User Settings") {
+            $("#midShowId").tabs("add", {
+                "title": titleValue,
+                "closable": true,
+                "href": "https://www.baidu.com"
+            })
+        }
+
+    });
+
+    //初始化时，隐藏用户信息
+    $(function () {
+        $("#userInformation").panel('close', true);
+
+        
+
+
+
+    });
+    //点击显示或隐藏用户信息
+    var judUser = false;
+    $("#userInfoId").click(function () {
+
+        if (judUser) {
+            $("#userInformation").panel('close', true);
+            judUser = false;
+        } else {
+
+            $("#userInformation").panel('open', true);
+            judUser = true;
+        }
+    });
+    
+
+
+    //当按钮失去焦点时，隐藏用户信息；
+    $("#userInfoId").blur(function () {
+        $("#userInformation").panel('close', true);
+        judUser = false;
+    });
+    
+    
+    
+
+</script>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <script src="~/Content/jquery-easyui-1.4.1/jquery-1.8.2.js"></script>
+        <script src="~/Content/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+        <script src="~/Content/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js"></script>
+        <link href="~/Content/jquery-easyui-1.4.1/themes/default/easyui.css" rel="stylesheet" />
+        <link href="~/Content/jquery-easyui-1.4.1/themes/icon.css" rel="stylesheet" />
+        <link href="~/Content/jquery-easyui-1.4.1/themes/color.css" rel="stylesheet" />
+        <title>@ViewBag.Title - Parts Delivery Management System</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <style type="text/css">
+
+            #btn1, #btn2, #btn3, #btn4, #btn5 ,#btn6 ,#btn7 {
+                height:40px;
+                width:250px;
+                border:1px;
+                text-align:left;
+                padding-top:13px;
+                padding-left:30px;
+                font-weight:600;
+                color:#808080;
+                background-color:#76ABCD;
+                
+            }
+                
+            .titleWord {
+                color:#fff;
+                font-size:15px;
+                
+            }
+            .topImage {
+                float:left;
+                margin-right:8px;
+                margin-bottom:0px;
+            
+            }
+
+            .topDiv {
+                float:right;
+                margin-right:25px;
+                margin-top:110px;
+            }
+
+            #topLogo {
+                float:left;
+                margin-top:15px;
+                margin-left:15px;
+            }
+            #topicWord {
+                font-family:Trebuchet;
+                font-size:33px;
+                font-weight:900;
+                color:#fff;
+                float:left;
+                margin-left:60px;
+                margin-top:40px;
+            }
+            .leftFontClass {
+                font-family:Trebuchet ;
+                font-size:17px;
+            }
+
+            .titleSet {
+                height:18px;
+            }
+            #userInformation {
+                
+                position:absolute;
+                left:1600px;
+                bottom:410px;
+            }
+            
+
+        </style>
+
+        <script type="text/javascript">
+            
+            
+        </script>
+    </head>
+    <body class="easyui-layout">
+
+                @RenderBody()
+
+        <footer style="height:5% ;text-align:center;">
+            <div class="content-wrapper">
+                <div style="padding-top:2px">
+                    <p >&copy; @DateTime.Now.Year - Parts Delivery Management System</p>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

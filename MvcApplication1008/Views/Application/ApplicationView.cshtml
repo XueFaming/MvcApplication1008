@@ -1,0 +1,338 @@
+﻿@{
+    Layout = null;
+}
+
+
+    <div id="frameDiv">
+        <div id="tableTitle">Hallmark Fixture Order Application Page</div> 
+        <form action="#">
+            <table border="1" id="applyTable">
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="textClass">Project:</td>
+                    <td class="textClass">Stage:</td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="inputClass">
+                        <select id="firstSel"  style="width:150px;height:35px;"  onchange="changeFirst(this.value)" >
+                            <option>/</option>
+                        </select>
+                    </td>
+                    <td  class="inputClass">
+                        <select id="stageSel" data-options="editable:false" style="width:150px;height:35px;" >
+                            <option>/</option>
+                            <option>Drop1</option>
+                            <option>Drop2</option>
+                            <option>P1</option>
+                            <option>P2</option>
+                            <option>EVT</option>
+                            <option>DVT</option>
+                            <option>CB</option>
+                            <option>MP</option>
+                        </select>
+                    </td>
+                </tr>
+                    
+                    
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="textClass">Type1:</td>
+                    <td class="textClass">Quantity:</td> 
+                </tr>
+                <tr>
+                    
+                    <td style="width:50px;"></td>
+                    <td  class="inputClass">
+                        <select id="secondSel"  style="width:150px;height:35px;"  onchange="changeSecond(this.value);">
+                            <option>/</option>
+                        </select>
+                    </td>
+                    
+                    <td  class="inputClass">
+                        <input class="easyui-numberspinner" style="width:150px;height:35px" required="required" data-options="min:1,max:20,editable:true,value:1"/>  
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="textClass">Type2:</td>
+                    <td class="textClass">Site for Use:</td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="inputClass">
+                        <select  id="thirdSel" style="width:150px; height:35px;" >
+                            <option>/</option>
+                        </select>
+                    </td>
+                    <td class="inputClass">
+                        <input  id="siteId" class="easyui-combobox" style="width:150px;height:30px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="textClass">Approver-Technique:</td>
+                    <td class="textClass">Approver-Business:</td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="inputClass">
+                        <select id="approve1"  style="width:150px;height:35px;" >
+                            <option>/</option>
+                            <option>Julius</option>
+                            <option>Tim</option>
+                        </select>
+                    </td>
+                    <td class="inputClass">
+                        <select id="approve2" style="width:150px;height:35px;" >
+                            <option>/</option>
+                            <option>Julius</option>
+                            <option>Tim</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="textClass" colspan="2">
+                        Discriptioin:
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50px;"></td>
+                    <td class="commentClass" colspan="2">
+                        <input type="text" id="commentId"/>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="height:100px;"></td>
+                    <td colspan="2" style="height:40px">
+                        <input  id="submitBtn" type="submit" value="Submit" style="width:100px;height:30px;background-color:#F7F7F7"/>
+                        <input  id="savetBtn" type="button" value="Save" style="width:100px;height:30px;background-color:#F7F7F7"/>
+                        <input  id="resetBtn" type="button" value="Reset" style="width:100px;height:30px;background-color:#F7F7F7" onclick="resetFun()"/>
+                    </td>
+                    
+                </tr>
+            </table>
+        </form>
+        
+    </div>
+    <style type="text/css">
+
+
+        
+       
+        #applyTable {
+            border-collapse:collapse;
+            border-radius:15px;
+            margin-left:430px;
+            margin-top:20px;
+            background-color:#fff;
+        }
+       
+        .textClass {
+           text-align:left; 
+            font-size:20px;
+            font-weight:600;
+            font-family:Myriad;
+            color:#808080;
+            width:300px;
+            height:30px;
+            padding-bottom:0px;
+        }
+
+        .inputClass {
+            text-align:left ;
+            
+            height:50px;
+            vertical-align:central;
+        }
+
+        #tableTitle {
+            font-size:45px;
+            font-weight:bolder;
+            color:#2887C7;
+            margin-left:400px;
+            margin-bottom:15px;
+            padding-top:5px;
+        }
+       
+        #frameDiv {
+            width:100%;
+            height:100%;
+            margin-top:0px;
+            background-image:url("../../Images/backgroundPic.jpg");
+            background-repeat:repeat;
+        }
+
+        
+        
+        #siteId{
+            border:1px solid #95B8E7;
+            border-radius:5px;
+        }
+
+        #commentId {
+            border:1px solid #95B8E7;
+            border-radius:5px;
+            height:45px;
+            width:535px; 
+        }
+
+        #resetBtn, #savetBtn, #submitBtn {
+            float:right;
+            border:1px solid #95B8E7;
+            border-radius:5px;
+            color:#808080;
+            font-size:15px;
+            margin-right:10px;
+           
+            
+        }
+
+        #submitBtn {
+            margin-right:100px;
+        }
+        
+    </style>
+    
+    <script type="text/javascript" >
+
+        //动态加载site下拉框
+        $(function () {
+            $("#siteId").combobox({
+                valueField: 'id',
+                textField: 'site',
+                data: [{ id: 1, site: 'IPEG-GL' }, { id: 2, site: 'iDPBG-GL' }, { id: 3, site: 'iPEG-LH' }, { id: 4, site: 'LF-DG' }],
+                selectOnNavigation:true,
+            });
+
+        });
+        
+
+
+        //重置按钮
+        function resetFun() {
+
+            //重置所有的select
+            var selectObjs = document.getElementsByTagName("select");
+            selectObjs[0].options[0].selected = true;
+            selectObjs[1].options[0].selected = true;
+            selectObjs[4].options[0].selected = true;
+            selectObjs[5].options[0].selected = true;
+
+            selectObjs[2].length = 0;
+            var typ1 = new Option('/', '/', true, true);
+            selectObjs[2].options[0] = typ1;
+            
+            selectObjs[3].length = 0;
+            var typ2 = new Option('/', '/', true, true);
+            selectObjs[3].options[0] = typ2;
+
+            //重置两个输入框；
+            $("#siteId").combobox("clear");
+            var commentObj = document.getElementById("commentId");
+            commentObj.value = null;
+        }
+       
+
+        var arrValue = {
+            "D42":
+                {
+                    "Housing": ["Band 00D	Band 90D", "Band Prism X", "Band Prism Y", "ASSY 00D", "ASSY 90D", "ASSY Prism"],
+                    "Glass": ["BG", "CG"],
+                    "CGDF": ["CG Display", "CG Frame", "Top Module", "2N Force", "Cosmetic"],
+                    "Frame": ["Frame Only Upward", "Frame Only Downward"],
+                    "RCAM": ["RCAM Trim Inner", "RCAM Trim Outer", "RCAM ASSY", "RCAM Brace", "RCAM Strobe Trim"],
+                    "SIM-Tray": ["SIM-Tray Upward", "SIM-Tray Downward", "SIM-Tray Dual-Card", "SIM-Tray Bin"],
+                    "Bracket": ["Top Bracket"],
+                },
+            "D43":
+                {
+                    "Housing": ["Band 00D	Band 90D", "Band Prism X", "Band Prism Y", "ASSY 00D", "ASSY 90D", "ASSY Prism"],
+                    "Glass": ["BG", "CG"],
+                    "CGDF": ["CG Display", "CG Frame", "Top Module", "2N Force", "Cosmetic"],
+                    "Frame": ["Frame Only Upward", "Frame Only Downward"],
+                    "RCAM": ["RCAM Trim Inner", "RCAM Trim Outer", "RCAM ASSY", "RCAM Brace", "RCAM Strobe Trim"],
+                    "SIM-Tray": ["SIM-Tray Upward", "SIM-Tray Downward", "SIM-Tray Dual-Card", "SIM-Tray Bin"],
+                    "Bracket": ["Top Bracket"],
+                },
+            "N104":
+                {
+                    "Housing": ["Band 00D	Band 90D", "Band Prism X", "Band Prism YB", "Band Prism YT", "ASSY 00D", "ASSY 90D", "ASSY Prism"],
+                    "Glass": ["BG", "CG"],
+                    "CGDF": ["CG Sensor", "CG Frame", "CG Display"],
+                    "Frame": ["Frame Only Upward", "Frame Only Downward"],
+                    "RCAM": ["RCAM Trim Inner", "RCAM Trim Outer", "RCAM ASSY", "RCAM Brace", "RCAM Strobe Trim"],
+                    "SIM-Tray": ["SIM-Tray Upward", "SIM-Tray Downward", "SIM-Tray Dual-Card", "SIM-Tray Bin"],
+                    "Bracket": ["Top Bracket"],
+                },
+            "N144":
+                {
+                    "Small": ["Iceman Housing", "Metal Housing", "Window", "Frame", "Window + Frame"],
+                    "Large": ["Iceman Housing", "Metal Housing", "Window", "Frame", "Window + Frame"]
+                },
+        };
+
+        var firstObj = null;
+        var secondObj = null;
+        var thirdObj = null;
+               
+        firstObj = document.body.querySelector("#firstSel");
+        secondObj = document.body.querySelector("#secondSel");
+        thirdObj = document.body.querySelector("#thirdSel");
+
+        
+        for (ele in arrValue) {
+            var op = new Option(ele, ele, false, false);
+            //每循环一次数组，将第一层赋给第一个select
+            firstObj[firstObj.length] = op;
+        };
+
+        var selValue1 = null;
+
+        function changeFirst(fisrtValue) {
+               
+            //先将第二个select初始化为空；
+            secondObj.length = 0;
+            if (fisrtValue == "/") {
+                   
+                var op = new Option('/', '/');
+                //console.log(op);
+                secondObj.options[0] = op;
+            } else {
+                    
+                for (ele in arrValue[fisrtValue]) {
+                    var op = new Option(ele, ele, false, false);
+                    secondObj[secondObj.length] = op;
+                }
+            }
+
+            selValue1 = fisrtValue;
+               
+            changeSecond(secondObj.value);
+        };
+
+        function changeSecond(secondValue) {
+            //将第三个select初始化为空；
+            thirdObj.length = 0;
+            if (secondValue == "/") {
+                var op = new Option('/', '/', false, false);
+                thirdObj.options[0] = op;
+            } else {
+                for (ele in arrValue[selValue1][secondValue]) {
+                    var op = new Option(arrValue[selValue1][secondValue][ele], arrValue[selValue1][secondValue][ele], false, false);
+                    thirdObj[thirdObj.length] = op;
+                }
+            }
+
+        }
+
+        
+    </script> 
+  
+
+    
+
+     
+

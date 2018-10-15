@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div id="proFrameId">
+    <div id="tableTitleP">
+        Hallmark Fixture Processing Orders Page
+    </div>
+    <div id="picsDiv">
+       <div class="processClass" id="processId1">
+           The Order is being submitted
+       </div>
+       <div class="arrowsClass" id="">
+           <img src="~/Images/arrows.png" />
+       </div>
+       <div class="processClass" id="processId2">
+           Need Technique to Approve
+       </div>
+       <div class="arrowsClass" id="">
+           <img src="~/Images/arrows.png" />
+       </div>
+       <div class="processClass" id="processId3">
+           Need Business to Approve
+       </div>
+       <div class="arrowsClass" id="">
+           <img src="~/Images/arrows.png" />
+       </div>
+       <div class="processClass" id="processId4">
+           Need Hallmark DRI to Arrange
+       </div>
+       <div class="arrowsClass" id="">
+           <img src="~/Images/arrows.png" />
+       </div>
+       <div class="processClass" id="processId5">
+           Completion
+       </div>
+    </div>
+
+    <div id="tableDataDiv">
+        
+        <table id="orderinfoId" class="easyui-datagrid" >   
+            <thead>   
+                <th data-options="field:'code',width:100">Serial Number</th>   
+                <th data-options="field:'name',width:100">名称</th>   
+                <th data-options="field:'price',width:100,align:'right'">价格</th>   
+            </thead>
+        </table>
+    </div>
+</div>
+<style>
+    .processClass , .arrowsClass {
+        float:left;
+        margin-left:12px;
+    }
+    
+    .processClass {
+        width:130px;
+        height:120px;
+        margin-top:15px;
+        border:3px solid #76ABCD;
+        font-size:23px;
+        font-weight:500;
+        border-radius:5px;
+        text-align:center;
+    }
+    #processId1, #processId2, #processId3 {
+        line-height:40px;
+    }
+    #processId5 {
+        
+        line-height:120px;
+    }
+    .arrowsClass {
+        width:100px;
+        height:90px;
+        padding-top:60px;
+    }
+    #proFrameId {
+        width:100%;
+        height:100%;
+        margin-top:0px;
+        background-image:url("../../Images/backgroundPic.jpg");
+        background-repeat:repeat;
+    }
+    #tableTitleP {
+        font-size:45px;
+        font-weight:bolder;
+        color:#2887C7;
+        margin-left:400px;
+        margin-bottom:15px;
+        padding-top:5px;
+        }
+
+    #picsDiv {
+        height:150px;
+        width:1200px;
+        margin-left:250px;
+        background-color:#fff;
+        border-radius:15px;
+    }
+    #tableDataDiv {
+        height:420px;
+        width:1200px;
+        margin-top:5px;
+        margin-left:250px;
+        background-color:#fff;
+        border-radius:15px;
+    }
+</style>
+<script type="text/javascript">
+    $('#orderinfoId').datagrid({
+        url: 'datatest.json',
+        columns: [[
+            { field: 'code', title: 'Code', width: 100 },
+            { field: 'name', title: 'Name', width: 100 },
+            { field: 'price', title: 'Price', width: 100, align: 'right' }
+        ]]
+    });
+
+    $("#orderinfoId").datagrid({
+        onClickRow: function (rowIndex, rowData) {
+            alert(rowIndex);
+        }
+    });
+   
+</script>
